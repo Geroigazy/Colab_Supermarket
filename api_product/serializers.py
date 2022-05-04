@@ -29,6 +29,7 @@ class postSerializer(ModelSerializer):
 			'image',
 			'cart_url',
 			'slug',
+			'category'
 			]
 
 
