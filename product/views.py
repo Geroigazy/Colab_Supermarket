@@ -1,5 +1,7 @@
 
+from audioop import reverse
 from re import template
+from django.http import HttpResponseRedirect
 from django.views.generic import (
 	ListView, 
 	DetailView, 
@@ -62,8 +64,19 @@ def create_cart(request, slug):
 		order = Order.objects.create(user=user_login)
 	order.carts.add(cart_single)
 
-	return redirect("core:detail-product", slug=slug)
+	return redirect("/")
 
+# def remove_item(request, id):
+# 	try:
+# 		the_id = request.session['cart_id']
+# 		cart = Cart.objects.get(id=the_id)
+# 	except:
+# 		return HttpResponseRedirect(reverse('summary'))
+
+# 	cartitem = Cart.objects.get(id=id)
+# 	cartitem.cart = None
+# 	cartitem.save()
+# 	return HttpResponseRedirect(reverse('summary'))
 
 def clear(request):
 	Order.objects.filter(user=request.user).delete()

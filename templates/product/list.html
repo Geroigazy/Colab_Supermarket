@@ -1,10 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 
 <div class="container">
-
 
 
 <div class="row">
@@ -17,7 +17,7 @@
   <div class="card-body">
     <a href="{%url 'product:detail-product' item.slug %}"><h5 class="card-title">{{ item.title }}</h5></a>
     <p><strong>{{ item.price }} $</strong></p>
-    <a class="btn btn-warning" style="width: 200px; border-radius: 8px;" href="{% url 'product:create-cart' item.slug %}">Add to Cart</a>
+    <a class="btn btn-warning" style="width: 200px; border-radius: 8px;" href="{% url 'product:detail-product' item.slug %}">Add to Cart</a>
   </div>
 </div>
 </div>
