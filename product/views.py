@@ -1,6 +1,8 @@
 
 from audioop import reverse
 from re import template
+import re
+from unicodedata import category
 from django.http import HttpResponseRedirect
 from django.views.generic import (
 	ListView, 
@@ -30,8 +32,20 @@ from django.db.models import Q
 
 class ListPage(ListView):
 	model = Product
-	paginate_by = 8
+	paginate_by = 12
 	template_name = "product/list.html"
+
+class MilkPage(ListView):
+	model = Product
+	paginate_by = len(Product.objects.filter(Q(category__icontains='milk')))
+	template_name = "product/milk.html"
+	context_object_name = 'product'
+
+
+	def get_milk(self):
+		query = self.request.GET.get('categ')
+		products = Product.objects.filter(Q(category__icontains=query))
+		return products
 
 class SearchResultsView(ListView):
 	model = Product
@@ -82,6 +96,7 @@ def clear(request):
 	Order.objects.filter(user=request.user).delete()
 	Cart.objects.filter(user=request.user).delete()
 	return redirect("/")
+
 
 
 def SummaPage(request):

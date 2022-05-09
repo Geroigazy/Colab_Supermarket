@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+
+
+<div class="row">
+
+
+{% for item in object_list %}
+<div class="col-lg-3 col-md-6 mb-4">
+<div class="card" style="border-radius: 15px;">
+{% if item.category == 'milk' %}
+  <a href="{%url 'product:detail-product' item.slug %}"><img src="{{ MEDIA_URL }}{{ item.image.url }}" class="card-img-top" alt="img"></a>
+  <div class="card-body">
+    <a href="{%url 'product:detail-product' item.slug %}"><h5 class="card-title">{{ item.title }}</h5></a>
+    <p><strong>{{ item.price }} $</strong></p>
+    <a class="btn btn-warning" style="width: 200px; border-radius: 8px;" href="{% url 'product:detail-product' item.slug %}">Add to Cart</a>
+  </div>
+{% else %}
+  <h1>No products</h1>
+{% endif %}
+</div>
+
+</div>
+
+
+
+{% endfor %}
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
