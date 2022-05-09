@@ -5,6 +5,7 @@ from .views import (
 	create_cart,
 	SearchResultsView,
 	# OrderSummaryView,
+	delete_item,
 	clear,
 	SummaPage,
 )
@@ -16,6 +17,7 @@ urlpatterns = [
 	path('summary/', login_required(SummaPage), name='summary'),
 	path('search/', SearchResultsView.as_view(), name='search-results'),
 	path('clear/', clear, name='clear'),
+	path('delete-item/<slug>/', delete_item, name='delete-item'),
 	path('<slug>/', DetailPage.as_view(), name='detail-product'),
 	path('', ListPage.as_view(), name='list-product'),
 ]

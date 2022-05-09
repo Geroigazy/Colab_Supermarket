@@ -1,5 +1,9 @@
 
+from itertools import product
+from math import prod
+from operator import ge
 from re import template
+import re
 from django.views.generic import (
 	ListView, 
 	DetailView, 
@@ -13,6 +17,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
+from requests import get
 
 from .models import Product, Cart, Order
 
@@ -69,6 +74,12 @@ def clear(request):
 	Order.objects.filter(user=request.user).delete()
 	Cart.objects.filter(user=request.user).delete()
 	return redirect("/")
+
+
+def delete_item(request, slug):
+	product = get_object_or_404(Product, slug=slug)
+	cart = Cart.objects.filter(user=request.user, product=product).delete()
+	return redirect('core:summary')
 
 
 def SummaPage(request):
