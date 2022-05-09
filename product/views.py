@@ -33,7 +33,7 @@ from django.db.models import Q
 
 class ListPage(ListView):
 	model = Product
-	paginate_by = 8
+	paginate_by = 24
 	template_name = "product/list.html"
 
 class SearchResultsView(ListView):

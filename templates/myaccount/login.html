@@ -3,14 +3,58 @@
 {% block head_title %}Login{% endblock %}
 {% block content %}
 
+<style>
+    .d-flex.flex-column.h-100 {
+    padding-top: 200px;
+    }
+    .requiredField{
+        color: black;
+        font-weight: bold;
+    }
+    .form-control {
+    background: #212529;
+    /* border-color: #545454; */
+    border-color: #11CFC5;
+    width: 500px;
+    }
+    .btn-primary{
+  color: white;
+  background-color: #11CFC5;
+    border-color: #11CFC5;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  width: 8em;
+  font-size: large;
+  font-weight: 600;
+    margin-left: 180px;
 
-<form action="" method="post">
+}
+a {
+    color: #11CFC5; /* Цвет обычной ссылки */ 
+    text-decoration: none; /* Убираем подчёркивание у ссылок */
+   }
+   a:visited {
+    color: #11CFC5; /* Цвет посещённой ссылки */
+   } 
+   a:hover {
+    color: #0069d9; /* Цвет ссылки при наведении */ 
+    text-decoration: underline; /* Добавляем подчёркивание */
+   }
+
+
+</style>
+<form action="" method="post" style="padding-top: 100px; padding-left: 320px;">
 {% csrf_token %}
 
 {{ form.username|as_crispy_field }}
 {{ form.password|as_crispy_field }}
 
-<button class="btn btn-primary" type="submit">Login</button>
+<button class="btn btn-primary" type="submit" style="margin-bottom: 15px;">Login</button>
+<a href="{% url 'register'%}" style="margin-left: 150px; font-size: 18px; font-weight: bold;" class="new_user">New user? Register Now</a>
+
 </form>
 
 

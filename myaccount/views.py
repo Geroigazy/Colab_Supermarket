@@ -10,16 +10,16 @@ from myaccount.forms import RegisterForm
 
 def register(request):
 
-	if request.user.is_authenticated:
-		return redirect('myaccount:logout')
-	else:
-		if request.method == 'POST':
-			form = RegisterForm(request.POST)
-			if form.is_valid():
-				form.save()
-				return redirect('myforum:list')
-		else:
-			form = RegisterForm()
+    if request.user.is_authenticated:
+        return redirect('myaccount:logout')
+    else:
+        if request.method == 'POST':
+            form = RegisterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+        else:
+            form = RegisterForm()
 
-			args = {'form':form}
-			return render(request, 'myaccount/register.html', args)
+            args = {'form': form}
+            return render(request, 'myaccount/register.html', args)

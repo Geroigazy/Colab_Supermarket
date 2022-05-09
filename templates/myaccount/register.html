@@ -1,15 +1,64 @@
-
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block head_title %}Registration{% endblock %}
 {% block content %}
+<style>
+    .d-flex.flex-column.h-100 {
+    padding-top: 200px;
+    }
+    .requiredField{
+        color: black;
+        font-weight: bold;
+    }
+    .form-control {
 
+    /* border-color: #545454; */
+    border-color: #11CFC5;
+    width: 500px;
+    }
+    .btn-primary{
+  color: white;
+  background-color: #11CFC5;
+    border-color: #11CFC5;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  width: 8em;
+  font-size: large;
+  font-weight: 600;
+    margin-left: 180px;
+
+}
+a {
+    color: #11CFC5; /* Цвет обычной ссылки */ 
+    text-decoration: none; /* Убираем подчёркивание у ссылок */
+   }
+   a:visited {
+    color: #11CFC5; /* Цвет посещённой ссылки */
+   } 
+   a:hover {
+    color: #0069d9; /* Цвет ссылки при наведении */ 
+    text-decoration: underline; /* Добавляем подчёркивание */
+   }
+form{
+    
+    padding-left: 320px;
+}
+button.btn.btn-primary {
+    margin-bottom: 15px;
+}
+
+
+</style>
 <form action="" method="post">
 {% csrf_token %}
 
 {{form|crispy}}
 
 <button class="btn btn-primary" type="submit">Register</button>
+<a href="{% url 'login'%}" style="margin-left: 150px; font-size: 18px; font-weight: bold;" class="new_user">Already have an account?</a>
 </form>
 
 {% endblock %}

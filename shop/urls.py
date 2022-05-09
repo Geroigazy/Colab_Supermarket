@@ -9,7 +9,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('myaccount.urls')),
     path('pay/', include('pay.urls')),
     path('api/v1/', include(('api_product.urls', 'api-product'), namespace='api-product')),
     path('api/v1/accounts/', include(('api_accounts.urls', 'api-accounts'), namespace='api-accounts')),

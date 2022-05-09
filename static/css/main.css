@@ -125,3 +125,6 @@ footer {
   background: #212529;
 }
 
+.navbar navbar-expand-lg navbar-dark bg-dark{
+	margin-bottom: 100px;
+  }
