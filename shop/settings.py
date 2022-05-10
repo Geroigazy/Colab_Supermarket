@@ -25,7 +25,11 @@ SECRET_KEY = 'x+^19x@=+t&gvy$-#jyl%n!1o6-8n5zvorics^f@^*4%y9b-jf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = []
+=======
+ALLOWED_HOSTS = ['192.168.0.155', '127.0.0.1']
+>>>>>>> be0f8284fb575c175624a6f21fa4edbe2a1e7005
 
 
 # Application definition
@@ -139,7 +143,7 @@ USE_TZ = True
 
 
 LOGIN_REDIRECT_URL = '/'
-
+LOGOUT_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # from decouple import config
 
@@ -167,5 +171,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-STRIPE_PUBLIC_KEY = ""
-STRIPE_SECRET_KEY = ""
+STRIPE_PUBLIC_KEY = "pk_test_51Kxy2OFbrhdTHiXJTH7LCGdKnyifbnQQBNgw2DZO4nNwxHZ1Zy459UWl64la4DOmSSQwufhTVlFXNAex5vuXEsOd00cwmZF9Pb"
+STRIPE_SECRET_KEY = "sk_test_51Kxy2OFbrhdTHiXJhSTCGB0ynhdTTnyBYuzk3nGJY1fPyAonwxIf7HGMgX3pCOCVraZwQZlO2iWsvLjeqBUb4C2700WU1XLjMU"
