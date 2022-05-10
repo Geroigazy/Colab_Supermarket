@@ -16,7 +16,7 @@
   <a href="{%url 'product:detail-product' item.slug %}"><img src="{{ MEDIA_URL }}{{ item.image.url }}" class="card-img-top" alt="img"></a>
   <div class="card-body">
     <a href="{%url 'product:detail-product' item.slug %}"><h5 class="card-title">{{ item.title }}</h5></a>
-    <p><strong>{{ item.price }} $</strong></p>
+    <p><strong>{{ item.price }} ₸</strong></p>
     <a class="btn btn-warning" style="width: 200px; border-radius: 8px;" href="{% url 'product:create-cart' item.slug %}">Add to Cart</a>
   </div>
 </div>

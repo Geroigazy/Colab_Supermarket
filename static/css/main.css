@@ -115,6 +115,7 @@ a:hover, a:focus {
 .form-control {
 	border-color: #11CFC5;
 	width: 500px;	
+	background-color: #fff;
 }
 
 .form-control:focus {
@@ -161,4 +162,7 @@ form{
 }
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12 {
     margin-top: 0px;
+}
+.w3-content.w3-display-container {
+    margin-bottom: 50px;
 }

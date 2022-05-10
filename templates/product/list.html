@@ -2,10 +2,29 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    .mySlides {display:none;}
+    .w3-left, .w3-right, .w3-badge {cursor:pointer}
+    .w3-badge {height:13px;width:13px;padding:0}
+</style>
 
 <div class="container">
-
-
+    <div align="center">
+        <div class="w3-content w3-display-container" style="margin-bottom: 50px;">
+            <img class="mySlides w3-animate-right" src="https://arbuz.kz/image/f/1c63e26f-91c1-41f9-9768-de79e162e685-326_s_1_1_jpg.jpg?w=1450&h=:h&c=1651381972"  style="width:100%">
+            <img class="mySlides w3-animate-left" src="https://arbuz.kz/image/f/923ba605-2aec-42f6-a188-6d6ec11e1dc6-333_s_3_1_jpg.jpg?w=1450&h=:h&c=1650369135" style="width:100%">
+            <img class="mySlides w3-animate-right" src="https://arbuz.kz/image/f/8c6eabe0-3e7f-43bb-8ea1-e580ce637d85-357_-_jpg.jpg?w=1450&h=:h&c=1651838315" style="width:100%">
+            <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+                <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+            </div>
+        </div>
+        
+    </div>
 
 <div class="row">
 
@@ -16,7 +35,7 @@
   <a href="{%url 'product:detail-product' item.slug %}"><img src="{{ MEDIA_URL }}{{ item.image.url }}" class="card-img-top" alt="img"></a>
   <div class="card-body">
     <a href="{%url 'product:detail-product' item.slug %}"><h5 class="card-title">{{ item.title }}</h5></a>
-    <p><strong>{{ item.price }} $</strong></p>
+    <p><strong>{{ item.price }} ₸</strong></p>
     <a class="btn btn-warning" style="width: 200px; border-radius: 8px;" href="{% url 'product:create-cart' item.slug %}">Add to Cart</a>
   </div>
 </div>
@@ -64,7 +83,38 @@
         {% endif %}
     </ul>
 {% endif %}
-
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+    showDivs(slideIndex += n);
+    }
+    
+    function currentDiv(n) {
+    showDivs(slideIndex = n);
+    }
+    
+    function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+        x[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " w3-white";
+    }
+    
+    setInterval(function(){
+        plusDivs(1);
+    }, 2000)
+    </script>
 
 
 
