@@ -1,11 +1,59 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="container">
-	<h1>{{ object.title }}</h1>
-	Description: <b>{{ object.desc }}</b><br>
-	Price: <b>{{ object.price }} $</b><br><br>
-	<img src="{{ MEDIA_URL }}{{ object.image.url }}"  alt="img"><br><br>
-	<a href="{% url 'core:create-cart' object.slug %}"><button type="button" class="btn btn-success">+ To Cart</button></a>
+<div class="container" style="margin-bottom: 100px;">
+	<div class="col-sm-12 col-md-8 order-md-2 order-1" style="margin: 0 auto;">
+		<article class="product content" style="background-color: #fff;">
+			<h1 class="product-h1">
+				<font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit; color: black;">{{object.title}}</font>
+				</font>
+			</h1>
+			<div class="row">
+				<div class="col-12 col-md-7 mb-4">
+					<div class="image">
+					<img src="{{ MEDIA_URL }}{{ object.image.url }}" alt="" class="d-block mx-auto">
+					</div>
+				</div>
+				<div class="col-12 col-md-5">
+					<div class="price-single">
+						<div>
+							<b>
+								<span class="price--wrapper price--currency_KZT">
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit; font-size: 1.5rem;">{{ object.price }} </font>
+									</font>
+									<span class="price--sign price--suffix">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit; font-size: 1.5rem;">₸</font>
+										</font></span>
+								</span>
+							</b> 
+						</div>
+					</div>
+					<div class="row component product-item">
+						<button class="btn btn-success">
+							<a href="{% url 'core:create-cart' object.slug %}"><span>To cart</span></a> 
+							<img src="https://arbuz.kz/static/platform/frontend/assets/social/cart-btn-icon.svg" width="19"> 
+							<!---->
+						</button>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<section class="properties">
+						<span class="properties--manufacturer">
+							Description:
+						</span>
+					</section>
+					<div class="information">
+						<div>
+							<p>{{ object.desc }}</p>
+						</div> 
+					<!---->
+				</div>
+				</div>
+			</div>
+		</article>	
+</div>
 </div>
 {% endblock content %}
