@@ -20,7 +20,7 @@
     .btn-primary{
   color: white;
   background-color: #11CFC5;
-    border-color: #11CFC5;
+  border-color: #11CFC5;
   border-radius: 50px;
   display: flex;
   justify-content: center;
@@ -30,16 +30,18 @@
   font-size: large;
   font-weight: 600;
     margin-left: 180px;
-
 }
-a {
+.btn-primary :visited{
+  color: #fff;
+}
+.newuser {
     color: #11CFC5; /* Цвет обычной ссылки */ 
     text-decoration: none; /* Убираем подчёркивание у ссылок */
    }
-   a:visited {
+   .newuser:visited {
     color: #11CFC5; /* Цвет посещённой ссылки */
    } 
-   a:hover {
+   .newuser:hover {
     color: #0069d9; /* Цвет ссылки при наведении */ 
     text-decoration: underline; /* Добавляем подчёркивание */
    }
@@ -53,7 +55,7 @@ a {
 {{ form.password|as_crispy_field }}
 
 <button class="btn btn-primary" type="submit" style="margin-bottom: 15px;">Login</button>
-<a href="{% url 'register'%}" style="margin-left: 150px; font-size: 18px; font-weight: bold;" class="new_user">New user? Register Now</a>
+<a href="{% url 'register'%}" class="newuser" style="margin-left: 150px; font-size: 18px; font-weight: bold;" class="new_user">New user? Register Now</a>
 
 </form>
 

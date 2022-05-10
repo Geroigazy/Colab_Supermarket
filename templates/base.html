@@ -8,11 +8,10 @@
     {% endblock %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
   </head>
-  <body>
+  <body >
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #212529; margin-bottom: 100px;">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #17a2b8; margin-bottom: 100px; padding-top: 25px;padding-bottom: 25px;">
       <a class="navbar-brand" href={%url 'product:list-product' %}><img src="{% static 'images/logo.png' %}" style="width: 100px;" alt="img"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,12 +20,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href=#>Store <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href=#>               <span class="sr-only">(current)</span></a>
           </li>
           <li>
             <div class="search">
               <form method="get" action="search" style="display:inline-flex;">
-              <input autocomplete="off" name="search" type="text" rel="Начните вводить название товара" placeholder="Начните вводить название товара" class="form-control"> <button type="submit" id="search">Search</button>
+              <input autocomplete="off" name="search" type="text" rel="Start entering the product name" placeholder="Start entering the product name" class="form-control"> <button type="submit" id="search" style="color: white;background-color: #11CFC5;border-color: #11CFC5; margin-left: 10px; border-radius: 10px; justify-content: center;align-items: center;    padding-bottom: 5px;">Search</button>
             </form></div>
           </li>
      
@@ -38,10 +37,10 @@
             </a>
             <p id="cart-total" style="color: white;">{% load cart_item %} {% get_cart_item %}</p>
             {% if request.user.is_authenticated %}
-            <a href="{%url 'logout' %}"class="btn btn-warning" style="margin-left: 15px;">Logout</a>
+            <a href="{%url 'logout' %}"class="btn-logout" style="margin-left: 15px;">Logout</a>
             
             {% else %}
-            <a href="{% url 'login'%}"class="btn btn-warning" style="margin-left: 15px;">Login</a>
+            <a href="{% url 'login'%}"class="btn-login" style="margin-left: 15px;">Login</a>
 
             {% endif %}
         </div>
@@ -79,17 +78,17 @@
   
   </body>
   <div class="d-flex flex-column h-100">
-    <footer class="w-100 py-4 flex-shrink-0" style="background-color: rgb(8, 8, 8);">
+    <footer class="w-100 py-4 flex-shrink-0" style="background-color: #17a2b8; color: #fff; ">
       <div class="container py-4">
           <div class="row gy-4 gx-5">
               <div class="col-lg-4 col-md-6">
                   <h5 class="h1 text-white">COLAB.</h5>
-                  <p class="small text-muted">𝘼 𝙛𝙚𝙬 𝙘𝙡𝙞𝙘𝙠𝙨 𝙞𝙨 𝙖𝙡𝙡 𝙞𝙩 𝙩𝙖𝙠𝙚𝙨.</p>
-                  <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved.</p>
+                  <p class="small">𝘼 𝙛𝙚𝙬 𝙘𝙡𝙞𝙘𝙠𝙨 𝙞𝙨 𝙖𝙡𝙡 𝙞𝙩 𝙩𝙖𝙠𝙚𝙨.</p>
+                  <p class="small mb-0">&copy; Copyrights. All rights reserved.</p>
               </div>
               <div class="col-lg-2 col-md-6">
                   <h5 class="text-white mb-3">Quick links</h5>
-                  <ul class="list-unstyled text-muted">
+                  <ul class="list-unstyled ">
                       <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Home</a></li>
                       <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">About</a></li>
                       <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Get started</a></li>
@@ -98,7 +97,7 @@
               </div>
               <div class="col-lg-2 col-md-6">
                   <h5 class="text-white mb-3">Quick links</h5>
-                  <ul class="list-unstyled text-muted">
+                  <ul class="list-unstyled ">
                       <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Home</a></li>
                       <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">About</a></li>
                       <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Get started</a></li>
@@ -107,7 +106,7 @@
               </div>
               <div class="col-lg-4 col-md-6">
                   <h5 class="text-white mb-3">Newsletter</h5>
-                  <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                  <p class="small ">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
 
               </div>
           </div>
