@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+<div style="padding-bottom: 200px;">
 <h2>pay ${{ request.session.total }}</h2>
-<form action="{% url 'final' %}" method="post">
+<form action="{% url 'final' %}" style="padding-left: 0;" method="post">
   {% csrf_token %}
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="{{ key }}"
           data-description="My Charge"
           data-amount="{{ request.session.total_amount }}"
-          data-locale="auto"></script>
+          data-locale="auto">
+  </script>
 </form>
-
+</div>
 {% endblock content %}
