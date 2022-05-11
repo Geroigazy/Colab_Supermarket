@@ -38,7 +38,7 @@ class ListPage(ListView):
 
 class SearchResultsView(ListView):
 	model = Product
-	paginate_by = 8
+	paginate_by = 24
 	template_name = "product/searchlist.html"
 	context_object_name = 'product'
 
